@@ -182,7 +182,6 @@
 </li>
 </ul>
 <p>或用<code>gender ENUM(&#39;M&#39;,&#39;F&#39;),</code>代替检查约束</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> person</span><br><span class="line">(person_id <span class="built_in">smallint</span> <span class="keyword">unsigned</span>,</span><br><span class="line">fname <span class="built_in">varchar</span>(<span class="number">20</span>),</span><br><span class="line">lname <span class="built_in">varchar</span>(<span class="number">20</span>),</span><br><span class="line">gender enum(<span class="string">'M'</span>,<span class="string">'F'</span>),</span><br><span class="line">birth_date <span class="built_in">date</span>,</span><br><span class="line">street <span class="built_in">varchar</span>(<span class="number">30</span>),</span><br><span class="line">city <span class="built_in">varchar</span>(<span class="number">20</span>),</span><br><span class="line">state <span class="built_in">varchar</span>(<span class="number">20</span>),</span><br><span class="line">country <span class="built_in">varchar</span>(<span class="number">20</span>),</span><br><span class="line">postal_code <span class="built_in">varchar</span>(<span class="number">20</span>),</span><br><span class="line"><span class="keyword">constraint</span> pk_person primary <span class="keyword">key</span> (person_id)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
         
           <a class="article-more-a" href="/2018/12/15/《SQL学习指南》笔记/#more">more >></a>
         
@@ -206,10 +205,6 @@
 
       
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/15/《SQL学习指南》笔记/">展开全文 >></a>
-        </p>
       
 
       
