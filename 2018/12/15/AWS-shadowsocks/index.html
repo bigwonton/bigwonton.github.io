@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://bigwonton.github.io">
   <title>AWS+shadowsocks | xinyingshi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="说来惭愧，今天才来折腾翻（he）墙（xie），出来溜达的感觉真好～ 步骤 在这里用到了AWS(Amazon Web Service)，是亚马逊给我们提供的服务，我们可以在https://amazonaws-china.com/这里申请服务器。 申请成功并将实例启动之后，进入AWS管理控制台，选择左上角的EC2，再点击实例，连接，按照官方的指示，在本地连接上服务器。  然后进行如下操作 123456">
+  <meta name="description" content="说来惭愧，今天才来折腾翻（he）墙（xie），出来溜达的感觉真好～ 步骤 在这里用到了AWS(Amazon Web Service)，是亚马逊给我们提供的服务，我们可以在https://amazonaws-china.com/这里申请服务器。 申请成功并将实例启动之后，进入AWS管理控制台，选择左上角的EC2，再点击实例，连接，按照官方的指示，在本地连接上服务器。">
 <meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AWS+shadowsocks">
 <meta property="og:url" content="http://bigwonton.github.io/2018/12/15/AWS-shadowsocks/index.html">
 <meta property="og:site_name" content="xinyingshi">
-<meta property="og:description" content="说来惭愧，今天才来折腾翻（he）墙（xie），出来溜达的感觉真好～ 步骤 在这里用到了AWS(Amazon Web Service)，是亚马逊给我们提供的服务，我们可以在https://amazonaws-china.com/这里申请服务器。 申请成功并将实例启动之后，进入AWS管理控制台，选择左上角的EC2，再点击实例，连接，按照官方的指示，在本地连接上服务器。  然后进行如下操作 123456">
+<meta property="og:description" content="说来惭愧，今天才来折腾翻（he）墙（xie），出来溜达的感觉真好～ 步骤 在这里用到了AWS(Amazon Web Service)，是亚马逊给我们提供的服务，我们可以在https://amazonaws-china.com/这里申请服务器。 申请成功并将实例启动之后，进入AWS管理控制台，选择左上角的EC2，再点击实例，连接，按照官方的指示，在本地连接上服务器。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-15T13:24:39.791Z">
+<meta property="og:updated_time" content="2018-12-15T13:32:48.628Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AWS+shadowsocks">
-<meta name="twitter:description" content="说来惭愧，今天才来折腾翻（he）墙（xie），出来溜达的感觉真好～ 步骤 在这里用到了AWS(Amazon Web Service)，是亚马逊给我们提供的服务，我们可以在https://amazonaws-china.com/这里申请服务器。 申请成功并将实例启动之后，进入AWS管理控制台，选择左上角的EC2，再点击实例，连接，按照官方的指示，在本地连接上服务器。  然后进行如下操作 123456">
+<meta name="twitter:description" content="说来惭愧，今天才来折腾翻（he）墙（xie），出来溜达的感觉真好～ 步骤 在这里用到了AWS(Amazon Web Service)，是亚马逊给我们提供的服务，我们可以在https://amazonaws-china.com/这里申请服务器。 申请成功并将实例启动之后，进入AWS管理控制台，选择左上角的EC2，再点击实例，连接，按照官方的指示，在本地连接上服务器。">
   
     <link rel="alternative" href="/atom.xml" title="xinyingshi" type="application/atom+xml">
   
@@ -178,8 +178,10 @@
         <p>说来惭愧，今天才来折腾翻（he）墙（xie），出来溜达的感觉真好～</p>
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ul>
 <li>在这里用到了AWS(Amazon Web Service)，是亚马逊给我们提供的服务，我们可以在<code>https://amazonaws-china.com/</code>这里申请服务器。</li>
-<li><p>申请成功并将实例启动之后，进入<code>AWS管理控制台</code>，选择左上角的<code>EC2</code>，再点击<code>实例</code>，<code>连接</code>，按照官方的指示，在本地连接上服务器。</p>
-</li>
+<li>申请成功并将实例启动之后，进入<code>AWS管理控制台</code>，选择左上角的<code>EC2</code>，再点击<code>实例</code>，<code>连接</code>，按照官方的指示，在本地连接上服务器。</li>
+</ul>
+<a id="more"></a>
+<ul>
 <li><p>然后进行如下操作</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo -s </span><br><span class="line"></span><br><span class="line">apt-get update</span><br><span class="line"></span><br><span class="line">apt-get install python-pip</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-- 直接install shadowsocks会报错</span><br><span class="line">export LC_ALL=C</span><br><span class="line"></span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure>
 </li>
