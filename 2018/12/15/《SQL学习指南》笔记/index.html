@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="xinyingshi">
 <meta property="og:description" content="[TOC] 创建和使用数据库 主键约束constraint pk_person primary key (person_id)  检查约束gender char(1) check (gender in (&amp;#39;M&amp;#39;,&amp;#39;F&amp;#39;)),   或用gender ENUM(&amp;#39;M&amp;#39;,&amp;#39;F&amp;#39;),代替检查约束 12345678910111213create">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-15T11:15:10.859Z">
+<meta property="og:updated_time" content="2018-12-15T11:16:58.493Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《SQL学习指南》笔记">
 <meta name="twitter:description" content="[TOC] 创建和使用数据库 主键约束constraint pk_person primary key (person_id)  检查约束gender char(1) check (gender in (&amp;#39;M&amp;#39;,&amp;#39;F&amp;#39;)),   或用gender ENUM(&amp;#39;M&amp;#39;,&amp;#39;F&amp;#39;),代替检查约束 12345678910111213create">
@@ -183,6 +183,7 @@
 </ul>
 <p>或用<code>gender ENUM(&#39;M&#39;,&#39;F&#39;),</code>代替检查约束</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> person</span><br><span class="line">(person_id <span class="built_in">smallint</span> <span class="keyword">unsigned</span>,</span><br><span class="line">fname <span class="built_in">varchar</span>(<span class="number">20</span>),</span><br><span class="line">lname <span class="built_in">varchar</span>(<span class="number">20</span>),</span><br><span class="line">gender enum(<span class="string">'M'</span>,<span class="string">'F'</span>),</span><br><span class="line">birth_date <span class="built_in">date</span>,</span><br><span class="line">street <span class="built_in">varchar</span>(<span class="number">30</span>),</span><br><span class="line">city <span class="built_in">varchar</span>(<span class="number">20</span>),</span><br><span class="line">state <span class="built_in">varchar</span>(<span class="number">20</span>),</span><br><span class="line">country <span class="built_in">varchar</span>(<span class="number">20</span>),</span><br><span class="line">postal_code <span class="built_in">varchar</span>(<span class="number">20</span>),</span><br><span class="line"><span class="keyword">constraint</span> pk_person primary <span class="keyword">key</span> (person_id)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> favorite_food</span><br><span class="line">(person_id <span class="built_in">smallint</span> <span class="keyword">unsigned</span>,</span><br><span class="line">food <span class="built_in">varchar</span>(<span class="number">20</span>),</span><br><span class="line"><span class="keyword">constraint</span> pk_favorite_food primary <span class="keyword">key</span> (person_id, food),</span><br><span class="line"><span class="keyword">constraint</span> fk_fav_food_person_id <span class="keyword">foreign</span> <span class="keyword">key</span> (person_id)</span><br><span class="line"><span class="keyword">references</span> person (person_id)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <p><strong>此时想要给person表主键增加auto_incremnt</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table person modify person_id smallint unsigned auto_increment;</span><br></pre></td></tr></table></figure></p>
 <p>报错，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error Code: 1833. Cannot change column &apos;person_id&apos;: used in a foreign key constraint &apos;fk_fav_food_person_id&apos; of table &apos;table.favorite_food&apos;</span><br></pre></td></tr></table></figure></p>
@@ -802,16 +803,6 @@
 </article>
 
   
-<nav id="article-nav">
-  
-  
-    <a href="/2018/12/15/first-post/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">first-post</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
