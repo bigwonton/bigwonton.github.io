@@ -155,6 +155,98 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-AWS-shadowsocks" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/15/AWS-shadowsocks/">AWS+shadowsocks</a>
+    </h1>
+  
+
+        
+        <a href="/2018/12/15/AWS-shadowsocks/" class="archive-article-date">
+  	<time datetime="2018-12-15T12:02:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>说来惭愧，今天才来折腾翻（he）墙（xie），出来溜达的感觉真好～</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ul>
+<li>在这里用到了AWS(Amazon Web Service)，是亚马逊给我们提供的服务，我们可以在<code>https://amazonaws-china.com/</code>这里申请服务器。</li>
+<li><p>申请成功并将实例启动之后，进入<code>AWS管理控制台</code>，选择左上角的<code>EC2</code>，再点击<code>实例</code>，<code>连接</code>，按照官方的指示，在本地连接上服务器。</p>
+</li>
+<li><p>然后进行如下操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo -s </span><br><span class="line"></span><br><span class="line">apt-get update</span><br><span class="line"></span><br><span class="line">apt-get install python-pip</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-- 直接install shadowsocks会报错</span><br><span class="line">export LC_ALL=C</span><br><span class="line"></span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>至此，已经安装好shadowsocks了，下一步就是修改配置文件，然后启动</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/shadowsocks.json</span><br></pre></td></tr></table></figure>
+<p>输入<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"server"</span>:<span class="string">"0.0.0.0"</span>,</span><br><span class="line">    <span class="attr">"server_port"</span>:<span class="string">"yourport"</span>,</span><br><span class="line">    <span class="attr">"local_address"</span>:<span class="string">"127.0.0.1"</span>,</span><br><span class="line">    <span class="attr">"local_port"</span>:<span class="number">1080</span>,</span><br><span class="line">    <span class="attr">"password"</span>:<span class="string">"yourpassword"</span>,</span><br><span class="line">    <span class="attr">"timeout"</span>:<span class="number">300</span>,</span><br><span class="line">    <span class="attr">"method"</span>:<span class="string">"aes-256-cfb"</span>,</span><br><span class="line">    <span class="attr">"fast_open"</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json -d start</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>将shadowsocks加入自启动<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/rc.local</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json -d start</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>最后一步，就是在本机下载shadowsocks客户端了，然后配置服务器的公网ip，开放端口以及密码</li>
+</ul>
+<p>下载地址<code>https://github.com/shadowsocks/ShadowsocksX-NG/releases</code></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-《SQL学习指南》笔记" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -324,6 +416,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SQL</a>
