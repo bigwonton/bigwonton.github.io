@@ -6,22 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://bigwonton.github.io">
-  <title>Leetcode 42 | xinyingshi</title>
+  <title>ES6 Notes | xinyingshi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="42. Trapping Rain Water Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.   Example:12Input: [0,1,0">
-<meta name="keywords" content="leetcode">
+  <meta name="description" content="xinyingshi&apos;s personal blog">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 42">
-<meta property="og:url" content="http://bigwonton.github.io/2019/02/12/刷题记 leetcode 42 Trapping Rain Water/index.html">
+<meta property="og:title" content="ES6 Notes">
+<meta property="og:url" content="http://bigwonton.github.io/2019/08/14/ES6-Notes/index.html">
 <meta property="og:site_name" content="xinyingshi">
-<meta property="og:description" content="42. Trapping Rain Water Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.   Example:12Input: [0,1,0">
+<meta property="og:description" content="xinyingshi&apos;s personal blog">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://assets.leetcode.com/uploads/2018/10/22/rainwatertrap.png">
-<meta property="og:updated_time" content="2019-02-11T16:44:11.931Z">
+<meta property="og:updated_time" content="2019-08-14T13:58:15.428Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode 42">
-<meta name="twitter:description" content="42. Trapping Rain Water Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.   Example:12Input: [0,1,0">
-<meta name="twitter:image" content="https://assets.leetcode.com/uploads/2018/10/22/rainwatertrap.png">
+<meta name="twitter:title" content="ES6 Notes">
+<meta name="twitter:description" content="xinyingshi&apos;s personal blog">
   
     <link rel="alternative" href="/atom.xml" title="xinyingshi" type="application/atom+xml">
   
@@ -157,46 +154,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-刷题记 leetcode 42 Trapping Rain Water" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-ES6-Notes" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Leetcode 42
+      ES6 Notes
     </h1>
   
 
         
-        <a href="/2019/02/12/刷题记 leetcode 42 Trapping Rain Water/" class="archive-article-date">
-  	<time datetime="2019-02-11T16:38:57.778Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-12</time>
+        <a href="/2019/08/14/ES6-Notes/" class="archive-article-date">
+  	<time datetime="2019-08-14T13:58:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="42-Trapping-Rain-Water"><a href="#42-Trapping-Rain-Water" class="headerlink" title="42. Trapping Rain Water"></a>42. Trapping Rain Water</h2><blockquote>
-<p>Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.</p>
-</blockquote>
-<p><img src="https://assets.leetcode.com/uploads/2018/10/22/rainwatertrap.png" alt="image"></p>
-<p>Example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [0,1,0,2,1,0,1,3,2,1,2,1]</span><br><span class="line">Output: 6</span><br></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>这题目看着不难，用栈来做就可以。我的思路是：</p>
-<ol>
-<li>以最大值为划分，分别计算左边和右边的面积和，然后相加</li>
-<li>减去数组的每个值之和</li>
-<li>加上最大值（划分点）的值（因为这个面积没有计算在第1步的和中，第2步却减掉了，所以要加回来）</li>
-</ol>
-<p>整体借助了两个stack，栈顶记录着当前位置最大的值。比栈顶大，才入栈，入栈的同时计算到前一个入栈的位置之间包含的面积。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">trap</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">         <span class="keyword">if</span> (height == <span class="keyword">null</span> || height.length &lt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        LinkedList&lt;Integer&gt; lstack = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        LinkedList&lt;Integer&gt; rstack = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; height.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!lstack.isEmpty() &amp;&amp; height[lstack.peek()] &gt; height[i]) &#123;</span><br><span class="line"></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (!lstack.isEmpty()) &#123;</span><br><span class="line">                    res += (height[lstack.peek()] * (i - lstack.peek())) ;</span><br><span class="line">                &#125;</span><br><span class="line">                lstack.push(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">         <span class="keyword">for</span> (i = height.length - <span class="number">1</span>; i &gt;= lstack.peek(); i--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!rstack.isEmpty() &amp;&amp; height[rstack.peek()] &gt; height[i]) &#123;</span><br><span class="line"></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (!rstack.isEmpty()) &#123;</span><br><span class="line">                    res += (height[rstack.peek()]) * (rstack.peek() - i);</span><br><span class="line">                &#125;</span><br><span class="line">                rstack.push(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; height.length; i++) &#123;</span><br><span class="line">            res -= height[i];</span><br><span class="line">        &#125;</span><br><span class="line">        res += height[lstack.peek()];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// System.out.println(res);</span></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>整个过程中我反复提交了好几次，才通过，犯了以下几个错误：</p>
-<ol>
-<li>没有考虑边界</li>
-<li>从右到左的范围选定错误，导致有一段区域在有些情况重复计算。正确的应该选择从[lstack.peek(),height.length-1]的范围</li>
-</ol>
-
+        
       
 
       
@@ -204,17 +182,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -265,7 +232,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://bigwonton.github.io/2019/02/12/刷题记 leetcode 42 Trapping Rain Water/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://bigwonton.github.io/2019/08/14/ES6-Notes/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -279,18 +246,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/14/ES6-Notes/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          ES6 Notes
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/12/15/AWS-shadowsocks/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">AWS+shadowsocks</div>
+    <a href="/2019/02/12/刷题记 leetcode 42 Trapping Rain Water/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Leetcode 42</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -309,19 +267,6 @@
             </div>
         </div>
         
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#42-Trapping-Rain-Water"><span class="toc-number">1.</span> <span class="toc-text">42. Trapping Rain Water</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析"><span class="toc-number">2.</span> <span class="toc-text">分析</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
         
     </div>
 </aside>
