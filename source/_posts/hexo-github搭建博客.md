@@ -72,30 +72,22 @@ hexo s   // 开启本地预览服务 localhost:4000
 
 ### 创建hexo分支
 
-创建hexo分支，**并将hexo设置为默认分支**。hexo分支存放源文件，master分支存放编译的静态博客文件。
 
 配置gitignore文件
 
 ```
-.DS_Store
-Thumbs.db
-db.json
-*.log
-node_modules/
-public/
-.deploy*/
-_config.yml
-
+/.deploy_git
+/public
 ```
 初始化仓库及提交
 
 ```
 git init  //初始化本地仓库
-git add -A //添加本地所有文件到仓库        
-git commit -m "blog源文件" //添加commit
-git branch hexo //添加本地仓库分支hexo
 git remote add origin git@github.com:bigwonton/bigwonton.github.io.git  //添加远程仓库 <server> 是指在线仓库的地址 origin是本地分支,remote add操作会将本地仓库映射到云端
-git push origin hexo //将本地仓库的源文件推送到远程仓库hexo分支
+git add . //添加本地所有文件到仓库        
+git commit -m "更新说明" //添加commit
+git checkout -b hexo //创建hexo分支
+git push origin hexo //将本地仓库的源文件推送到远程仓库
 ```
 
 ### 新终端初始化
@@ -117,19 +109,14 @@ git pull //每次写博客之前，先拉取hexo分支最新代码
 编辑md文件，提交
 
 ```
-git push
+git commit -m "添加新博客"
+git push origin hexo
 ```
 
 ###  更新博客页面
 
 ```
-git checkout master //切换回master分支
-
-git merge hexo //分支合并
-
-hexo g   // 生成 html
-
-git push  // 上传到github
+hexo g -d //部署
 ```
 
 
