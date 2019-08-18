@@ -1,6 +1,8 @@
 ---
 title: Leetcode 42
-tags: leetcode
+tags: 
+- leetcode
+- 算法
 toc: true
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: AWS+shadowsocks
 date: 2018-12-15 20:02:23
-tags: 随笔
+tags: 工具
 ---
 
 说来惭愧，今天才来折腾翻（he）墙（xie），出来溜达的感觉真好～

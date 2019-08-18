@@ -1,7 +1,8 @@
 ---
 title: hexo+github搭建博客
 date: 2019-08-14 22:05:15
-tags: Tools hexo
+tags: 
+- 工具
 ---
 
 ## 准备工作
