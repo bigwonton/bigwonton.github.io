@@ -3,6 +3,7 @@ title: hexo+github搭建博客
 date: 2019-08-14 22:05:15
 tags: 
 - 工具
+toc: true
 ---
 
 ## 准备工作
@@ -21,6 +22,8 @@ tags:
 npm install -g hexo
 npm install hexo-deploy-git --save //安装插件
 ```
+
+<!--more-->
 
 ## 初始化
 
@@ -112,11 +115,6 @@ git pull //每次写博客之前，先拉取hexo分支最新代码
 ```
 git commit -m "添加新博客"
 git push origin hexo
-```
-
-###  更新博客页面
-
-```
 hexo g -d //部署
 ```
 
