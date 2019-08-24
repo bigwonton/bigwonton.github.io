@@ -5,7 +5,7 @@ tags:
 ---
 
 
-> 1. React-Native mac 运行报错 error Failed to build iOS project. We ran "xcodebuild" command but it exited with error code 65. 
+> React-Native mac 运行报错 error Failed to build iOS project. We ran "xcodebuild" command but it exited with error code 65. 
 
 原因：第三方依赖包下载太慢。
 
@@ -44,7 +44,7 @@ npm install
 react-native run-ios
 ```
 
-> 2. react native undefined is not an object RNGestureHandlerModule.State
+> react native undefined is not an object RNGestureHandlerModule.State
 
 ```
 rm -rf node_modules
@@ -57,7 +57,10 @@ react-native link
 
 
 
-> 3. Error: Unable to resolve module `./DrawerLayout` from `/Users/xinyingshi/Projects/github-demo/MeiTuan/node_modules/react-navigation-drawer/dist/views/DrawerView.js`: The module `./DrawerLayout` could not be found from `/Users/xinyingshi/Projects/github-demo/MeiTuan/node_modules/react-navigation-drawer/dist/views/DrawerView.js`.
+> Error: Unable to resolve module `./DrawerLayout` from `/Users/xinyingshi/Projects/github-demo/MeiTuan/node_modules/react-navigation-drawer/dist/views/DrawerView.js`: The module `./DrawerLayout` could not be found from `/Users/xinyingshi/Projects/github-demo/MeiTuan/node_modules/react-navigation-drawer/dist/views/DrawerView.js`.
+
+
+https://github.com/react-navigation/react-navigation/issues/5564
 
 
 
