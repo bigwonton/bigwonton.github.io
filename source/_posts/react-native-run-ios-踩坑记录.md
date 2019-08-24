@@ -61,7 +61,9 @@ react-native link
 
 
 https://github.com/react-navigation/react-navigation/issues/5564
-
-
-
+```
+watchman watch-del-all && rm -rf $TMPDIR/react-* && rm -rf $TMPDIR/metro* && rm -rf $TMPDIR/haste-* && rm -rf $TMPDIR/react-native-packager-cache-* && rm -rf $TMPDIR/metro-bundler-cache-*
+rm -rf node_modules && npm install
+react-native run-ios -- --reset-cache (Not for Expo)
+```
 
