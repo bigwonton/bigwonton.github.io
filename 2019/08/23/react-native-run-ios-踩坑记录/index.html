@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://bigwonton.github.io">
   <title>react-native run-ios 踩坑记录 | xinyingshi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="React-Native mac 运行报错 error Failed to build iOS project. We ran “xcodebuild” command but it exited with error code 65.    原因：第三方依赖包下载太慢。 解决办法：手动下载。  查看第三方依赖包  1cat node_modules/react-native/scripts/">
+  <meta name="description" content="React-Native mac 运行报错 error Failed to build iOS project. We ran “xcodebuild” command but it exited with error code 65.   原因：第三方依赖包下载太慢。 解决办法：手动下载。  查看第三方依赖包  1cat node_modules/react-native/scripts/io">
 <meta property="og:type" content="article">
 <meta property="og:title" content="react-native run-ios 踩坑记录">
 <meta property="og:url" content="http://bigwonton.github.io/2019/08/23/react-native-run-ios-踩坑记录/index.html">
 <meta property="og:site_name" content="xinyingshi">
-<meta property="og:description" content="React-Native mac 运行报错 error Failed to build iOS project. We ran “xcodebuild” command but it exited with error code 65.    原因：第三方依赖包下载太慢。 解决办法：手动下载。  查看第三方依赖包  1cat node_modules/react-native/scripts/">
+<meta property="og:description" content="React-Native mac 运行报错 error Failed to build iOS project. We ran “xcodebuild” command but it exited with error code 65.   原因：第三方依赖包下载太慢。 解决办法：手动下载。  查看第三方依赖包  1cat node_modules/react-native/scripts/io">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-22T17:27:23.828Z">
+<meta property="og:updated_time" content="2019-08-24T07:37:23.136Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react-native run-ios 踩坑记录">
-<meta name="twitter:description" content="React-Native mac 运行报错 error Failed to build iOS project. We ran “xcodebuild” command but it exited with error code 65.    原因：第三方依赖包下载太慢。 解决办法：手动下载。  查看第三方依赖包  1cat node_modules/react-native/scripts/">
+<meta name="twitter:description" content="React-Native mac 运行报错 error Failed to build iOS project. We ran “xcodebuild” command but it exited with error code 65.   原因：第三方依赖包下载太慢。 解决办法：手动下载。  查看第三方依赖包  1cat node_modules/react-native/scripts/io">
   
     <link rel="alternative" href="/atom.xml" title="xinyingshi" type="application/atom+xml">
   
@@ -175,9 +175,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<ol>
-<li>React-Native mac 运行报错 error Failed to build iOS project. We ran “xcodebuild” command but it exited with error code 65. </li>
-</ol>
+<p>React-Native mac 运行报错 error Failed to build iOS project. We ran “xcodebuild” command but it exited with error code 65. </p>
 </blockquote>
 <p>原因：第三方依赖包下载太慢。</p>
 <p>解决办法：手动下载。</p>
@@ -199,16 +197,13 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">rm -rf node_modules </span><br><span class="line">npm cache clean --force</span><br><span class="line"></span><br><span class="line">npm install </span><br><span class="line"></span><br><span class="line">react-native run-ios</span><br></pre></td></tr></table></figure>
 <blockquote>
-<ol start="2">
-<li>react native undefined is not an object RNGestureHandlerModule.State</li>
-</ol>
+<p>react native undefined is not an object RNGestureHandlerModule.State</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">rm -rf node_modules</span><br><span class="line">rm -rf package_lock.json</span><br><span class="line">npm install</span><br><span class="line">npm install --save react-navigation               //这两步install可以不做，如果package.json里有的话</span><br><span class="line">npm install --save react-native-gesture-handler   //这两步install可以不做，如果package.json里有的话</span><br><span class="line">react-native link</span><br></pre></td></tr></table></figure>
 <blockquote>
-<ol start="3">
-<li>Error: Unable to resolve module <code>./DrawerLayout</code> from <code>/Users/xinyingshi/Projects/github-demo/MeiTuan/node_modules/react-navigation-drawer/dist/views/DrawerView.js</code>: The module <code>./DrawerLayout</code> could not be found from <code>/Users/xinyingshi/Projects/github-demo/MeiTuan/node_modules/react-navigation-drawer/dist/views/DrawerView.js</code>.</li>
-</ol>
+<p>Error: Unable to resolve module <code>./DrawerLayout</code> from <code>/Users/xinyingshi/Projects/github-demo/MeiTuan/node_modules/react-navigation-drawer/dist/views/DrawerView.js</code>: The module <code>./DrawerLayout</code> could not be found from <code>/Users/xinyingshi/Projects/github-demo/MeiTuan/node_modules/react-navigation-drawer/dist/views/DrawerView.js</code>.</p>
 </blockquote>
+<p><a href="https://github.com/react-navigation/react-navigation/issues/5564" target="_blank" rel="noopener">https://github.com/react-navigation/react-navigation/issues/5564</a></p>
 
       
 
