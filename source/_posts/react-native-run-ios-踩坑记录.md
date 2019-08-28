@@ -69,3 +69,13 @@ rm -rf node_modules && npm install
 react-native run-ios -- --reset-cache (Not for Expo)
 ```
 
+> react-native-gesture-handler报错： cannot read property state of undefined
+
+```
+// 1. 检查是否install
+// 2. 是否link
+react-native link react-native-gesture-handler
+// 3. 是否pod install
+cd ios
+pod install
+```
